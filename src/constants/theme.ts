@@ -14,14 +14,15 @@ export const COLORS = {
   text: '#303030',
   border: '#C6C6C8',
   lightBlue: '#C3E2FF',
+  outline: '#3F8CFF',
 };
 
 export const FONTS = {
-  regular: 'BeVietnam-Regular',
-  medium: 'BeVietnam-Medium',
-  semiBold: 'BeVietnam-SemiBold',
-  bold: 'BeVietnam-Bold',
-  extraBold: 'BeVietnam-ExtraBold',
+  regular: 'BeVietnamPro-Regular',
+  medium: 'BeVietnamPro-Medium',
+  semiBold: 'BeVietnamPro-SemiBold',
+  bold: 'BeVietnamPro-Bold',
+  extraBold: 'BeVietnamPro-ExtraBold',
 };
 
 export const SIZES = {

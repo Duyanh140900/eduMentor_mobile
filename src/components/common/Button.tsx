@@ -8,6 +8,7 @@ import {
   TextStyle,
 } from 'react-native';
 import {COLORS, FONTS, SIZES, SHADOWS} from '@/constants/theme';
+import CustomIcon from './CustomIcon';
 
 interface ButtonProps {
   title: string;
@@ -18,6 +19,11 @@ interface ButtonProps {
   loading?: boolean;
   style?: ViewStyle;
   textStyle?: TextStyle;
+  round?: number;
+  iconLeft?: string;
+  iconRight?: string;
+  iconSize?: number;
+  hasShadow?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -29,6 +35,11 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   style,
   textStyle,
+  round = SIZES.base,
+  iconLeft,
+  iconRight,
+  iconSize = 20,
+  hasShadow = false,
 }) => {
   const getVariantStyle = () => {
     switch (variant) {
@@ -69,28 +80,64 @@ const Button: React.FC<ButtonProps> = ({
     }
   };
 
+  const shadowStyle = hasShadow
+    ? {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.5,
+        elevation: 5,
+      }
+    : {};
+
   return (
     <TouchableOpacity
       style={[
         styles.button,
         getVariantStyle(),
         getSizeStyle(),
+        {borderRadius: round},
         disabled && styles.disabled,
+        shadowStyle,
         style,
       ]}
-      onPress={onPress}
+      onPress={() => {
+        console.log('onPress');
+        onPress();
+      }}
       disabled={disabled || loading}>
       {loading ? (
         <ActivityIndicator color={COLORS.white} />
       ) : (
-        <Text
-          style={[
-            styles.text,
-            variant === 'outline' && {color: COLORS.primary},
-            textStyle,
-          ]}>
-          {title}
-        </Text>
+        <>
+          {iconLeft && (
+            <CustomIcon
+              name={iconLeft}
+              width={iconSize}
+              height={iconSize}
+              style={styles.icon}
+            />
+          )}
+          <Text
+            style={[
+              styles.text,
+              variant === 'outline' && {color: COLORS.primary},
+              textStyle,
+            ]}>
+            {title}
+          </Text>
+          {iconRight && (
+            <CustomIcon
+              name={iconRight}
+              width={iconSize}
+              height={iconSize}
+              style={styles.icon}
+            />
+          )}
+        </>
       )}
     </TouchableOpacity>
   );
@@ -98,7 +145,6 @@ const Button: React.FC<ButtonProps> = ({
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: SIZES.base,
     alignItems: 'center',
     justifyContent: 'center',
     ...SHADOWS.light,
@@ -107,9 +153,14 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: SIZES.font,
     fontFamily: FONTS.medium,
+    marginHorizontal: 5,
   },
   disabled: {
     opacity: 0.5,
+  },
+  icon: {
+    marginRight: 5,
+    marginLeft: 5,
   },
 });
 

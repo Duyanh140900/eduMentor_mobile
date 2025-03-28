@@ -2,19 +2,21 @@ import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {COLORS, SIZES} from '@/constants/theme';
 import Icon from 'react-native-vector-icons/Feather';
+import CustomIcon from '../common/CustomIcon';
 
 const Header = () => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity style={styles.menuButton}>
-        <Icon name="menu" size={24} color={COLORS.text} />
+      <TouchableOpacity>
+        <CustomIcon name="menu" width={40} height={40} />
       </TouchableOpacity>
       <View style={styles.headerRight}>
-        <TouchableOpacity style={styles.notificationButton}>
-          <Icon name="bell" size={24} color={COLORS.text} />
+        <TouchableOpacity>
+          <CustomIcon name="notification" width={40} height={40} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.avatarContainer}>
-          <Icon name="user" size={24} color={COLORS.white} />
+          <CustomIcon name="avatar_default" width={20} height={20} />
+          <CustomIcon name="setting" width={20} height={20} />
         </TouchableOpacity>
       </View>
     </View>
@@ -26,7 +28,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: SIZES.large,
   },
   menuButton: {
     width: 40,
@@ -50,12 +51,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatarContainer: {
-    width: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
     height: 40,
+    paddingHorizontal: 10,
     borderRadius: 27,
     backgroundColor: COLORS.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'space-between',
     overflow: 'hidden',
   },
 });

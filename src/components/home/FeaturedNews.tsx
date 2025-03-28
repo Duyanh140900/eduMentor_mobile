@@ -36,7 +36,6 @@ const FeaturedNews = () => {
 const styles = StyleSheet.create({
   section: {
     marginBottom: SIZES.extraLarge,
-    paddingHorizontal: SIZES.large,
   },
   sectionTitle: {
     fontSize: 20,

@@ -28,7 +28,7 @@ const commonStyles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 20,
     color: COLORS.primary,
-    fontFamily: FONTS.extraBold,
+    fontFamily: FONTS.bold,
   },
 });
 

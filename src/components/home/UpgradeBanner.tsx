@@ -22,7 +22,7 @@ const UpgradeBanner = () => {
 
 const styles = StyleSheet.create({
   upgradeBanner: {
-    margin: SIZES.large,
+    // margin: SIZES.large,
     borderRadius: 8,
     overflow: 'hidden',
     backgroundColor: COLORS.primary,

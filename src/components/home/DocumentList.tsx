@@ -65,7 +65,6 @@ const DocumentList = () => {
 const styles = StyleSheet.create({
   section: {
     marginBottom: SIZES.extraLarge,
-    paddingHorizontal: SIZES.large,
   },
   sectionHeader: {
     flexDirection: 'row',
