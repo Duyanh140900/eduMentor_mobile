@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {COLORS, SIZES} from '@/constants/theme';
-import Icon from 'react-native-vector-icons/Feather';
 import CustomIcon from '../common/CustomIcon';
 
 const Header = () => {

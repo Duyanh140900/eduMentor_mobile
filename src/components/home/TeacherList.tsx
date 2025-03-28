@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {COLORS, FONTS, SIZES} from '@/constants/theme';
-import Icon from 'react-native-vector-icons/Feather';
+import CustomIcon from '../common/CustomIcon';
 
 const TeacherList = () => {
   return (
@@ -16,12 +16,12 @@ const TeacherList = () => {
         <Text style={styles.sectionTitle}>
           Danh sách giáo viên{'\n'}Do AI đề xuất cho bạn
         </Text>
-        <Icon name="arrow-right" size={24} color={COLORS.text} />
+        <CustomIcon name="arrow-right" width={24} height={24} />
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={styles.teacherCard}>
           <View style={styles.teacherAvatar}>
-            <Icon name="user" size={64} color={COLORS.white} />
+            <CustomIcon name="user" width={64} height={64} />
           </View>
           <View style={styles.teacherInfo}>
             <Text style={styles.teacherName}>Cô Lê Thị An</Text>

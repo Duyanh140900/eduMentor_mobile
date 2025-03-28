@@ -1,29 +1,40 @@
 import React from 'react';
-import {Image, ImageStyle, StyleProp, StyleSheet} from 'react-native';
+import {StyleProp, ViewStyle} from 'react-native';
+import LogoLogin from 'assets/svg/logo.svg';
+import GoogleIcon from 'assets/svg/social-google.svg';
+import FacebookIcon from 'assets/svg/social-fb.svg';
+import AppleIcon from 'assets/svg/social-apple.svg';
+import UserIcon from 'assets/svg/user.svg';
+import PasswordIcon from 'assets/svg/password.svg';
+import EyeIcon from 'assets/svg/eye.svg';
+import MenuIcon from 'assets/svg/menu.svg';
+import NotificationIcon from 'assets/svg/noti.svg';
+import NotificationActiveIcon from 'assets/svg/noti_active.svg';
+import SettingIcon from 'assets/svg/setting.svg';
+import AvatarDefaultIcon from 'assets/svg/avatar_default.svg';
+
+// Map các icon SVG
+const iconComponents: {[key: string]: React.FC<any>} = {
+  logo_login: LogoLogin,
+  google: GoogleIcon,
+  facebook: FacebookIcon,
+  apple: AppleIcon,
+  user: UserIcon,
+  password: PasswordIcon,
+  eye: EyeIcon,
+  menu: MenuIcon,
+  notification: NotificationIcon,
+  notification_active: NotificationActiveIcon,
+  setting: SettingIcon,
+  avatar_default: AvatarDefaultIcon,
+};
 
 interface Props {
-  name: string; // Tên icon (ví dụ: "home", "settings")
-  width?: number; // Kích thước icon (mặc định là 24)
-  height?: number; // Kích thước icon (mặc định là 24)
-  style?: StyleProp<ImageStyle>;
+  name: string;
+  width?: number;
+  height?: number;
+  style?: StyleProp<ViewStyle>;
 }
-
-// Import các file PNG
-const iconImages: {[key: string]: any} = {
-  logo_login: require('assets/images/logo_text.png'),
-  google: require('assets/images/social-google.png'),
-  facebook: require('assets/images/social-fb.png'),
-  apple: require('assets/images/social-apple.png'),
-  user: require('assets/images/user.png'),
-  password: require('assets/images/password.png'),
-  eye: require('assets/images/eye.png'),
-  menu: require('assets/images/menu.png'),
-  notification: require('assets/images/noti.png'),
-  notification_active: require('assets/images/noti_active.png'),
-  setting: require('assets/images/setting.png'),
-  avatar_default: require('assets/images/avt_default.png'),
-  // Thêm các icon khác vào đây
-};
 
 const CustomIcon: React.FC<Props> = ({
   name,
@@ -31,24 +42,14 @@ const CustomIcon: React.FC<Props> = ({
   height = 24,
   style,
 }) => {
-  const source = iconImages[name];
+  const IconComponent = iconComponents[name];
 
-  if (!source) {
-    return null; // Hoặc hiển thị một icon mặc định
+  if (!IconComponent) {
+    console.warn(`Icon "${name}" not found in iconComponents.`);
+    return null; // Avoid rendering an invalid component
   }
 
-  return (
-    <Image
-      source={source}
-      style={[styles.icon, {width: width, height: height}, style]}
-    />
-  );
+  return <IconComponent width={width} height={height} style={style} />;
 };
-
-const styles = StyleSheet.create({
-  icon: {
-    resizeMode: 'contain', // Đảm bảo icon không bị méo
-  },
-});
 
 export default CustomIcon;

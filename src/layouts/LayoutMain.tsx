@@ -1,4 +1,4 @@
-import Header from '@/components/screen/Header';
+import Header from '@/components/layout/Header';
 import {COLORS, FONTS} from '@/constants/theme';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';

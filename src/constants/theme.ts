@@ -1,3 +1,5 @@
+import {Dimensions} from 'react-native';
+
 export const COLORS = {
   primary: '#004390',
   secondary: '#5856D6',
@@ -9,7 +11,7 @@ export const COLORS = {
   dark: '#1C1C1E',
   white: '#FFFFFF',
   black: '#000000',
-  gray: '#8E8E93',
+  gray: '#BDBDBD',
   background: '#F4F9FD',
   text: '#303030',
   border: '#C6C6C8',
@@ -32,6 +34,11 @@ export const SIZES = {
   medium: 16,
   large: 18,
   extraLarge: 24,
+};
+
+export const SCREENS = {
+  width: Dimensions.get('window').width,
+  height: Dimensions.get('window').height,
 };
 
 export const SHADOWS = {

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {COLORS, FONTS, SIZES} from '@/constants/theme';
-import Icon from 'react-native-vector-icons/Feather';
+import CustomIcon from '../common/CustomIcon';
 
 const DocumentList = () => {
   // Dữ liệu mẫu cho danh sách tài liệu
@@ -38,14 +38,14 @@ const DocumentList = () => {
         <Text style={styles.sectionTitle}>
           Danh sách bộ tài liệu{'\n'}Do AI đề xuất cho bạn
         </Text>
-        <Icon name="arrow-right" size={24} color={COLORS.text} />
+        <CustomIcon name="arrow-right" width={24} height={24} />
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {documentData.map(item => (
           <View key={`doc-${item.id}`} style={styles.examCard}>
             <View style={styles.examCardContent}>
               <View style={styles.examImage}>
-                <Icon name={item.icon} size={24} color={COLORS.primary} />
+                <CustomIcon name={item.icon} width={24} height={24} />
               </View>
               <View style={styles.examInfo}>
                 <Text style={styles.examTitle}>{item.title}</Text>
